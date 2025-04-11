@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -12,6 +13,7 @@ function Home (){
         des : "",
         color : ""
     })
+    const navigate=useNavigate()
 
 
     const addTask = (name,des,color)=>{
@@ -36,7 +38,7 @@ function Home (){
            Enter a colour name <input onChange={(e)=>setColor(e.target.value)}  type="text" />
 
             <button onClick={()=>addTask(name,des,color)} >Add Task</button>
-            <button>View Page</button>
+            <button onClick={()=>navigate('/about',{state:{detail}})}>View Page</button>
 
         
 
